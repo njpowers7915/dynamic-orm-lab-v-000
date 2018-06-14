@@ -50,6 +50,7 @@ class InteractiveRecord
   end
 
   def self.find_by(hash)
+    binding.pry
     sql = "SELECT * FROM #{self.table_name} WHERE '#{hash.key(hash.values.first).to_s}' = '#{hash.values.first.to_s}' LIMIT 1"
     DB[:conn].execute(sql)
   end
